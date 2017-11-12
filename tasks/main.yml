@@ -1,0 +1,8 @@
+- name: install xl2tpd
+  apt: name=xl2tpd
+
+- name: put /etc/xl2tpd/xl2tpd.conf
+  template: src=xl2tpd.conf dest=/etc/xl2tpd/xl2tpd.conf
+
+- name: put /etc/ppp/options.xl2tpd
+  template: src=options.xl2tpd dest=/etc/ppp/options.xl2tpd

@@ -1,0 +1,18 @@
+ms-dns 8.8.8.8
+ms-dns 8.8.4.4
+asyncmap 0
+noccp
+auth
+crtscts
+mtu 1410
+mru 1410
+nodefaultroute
+lock
+proxyarp
+silent
+hide-password
+local
+#debug
+name l2tpd
+lcp-echo-interval 30
+lcp-echo-failure 4
