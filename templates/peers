@@ -1,0 +1,13 @@
+ipcp-accept-local
+ipcp-accept-remote
+refuse-eap
+require-mschap-v2
+noccp
+noauth
+mtu 1410
+mru 1410
+nodefaultroute
+debug
+connect-delay 5000
+name {{ item.login }}
+password {{ item.password }}

@@ -6,3 +6,7 @@
 
 - name: put /etc/ppp/options.xl2tpd
   template: src=options.xl2tpd dest=/etc/ppp/options.xl2tpd
+
+- name: put /etc/ppp/peers/{{ lac.name }}
+  template: src=peers dest=/etc/ppp/peers/{{ item.name }}
+  with_items: "{{ xl2tpd_lac_list }}"

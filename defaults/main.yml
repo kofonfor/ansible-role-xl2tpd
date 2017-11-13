@@ -1,2 +1,4 @@
+xl2tpd_lac_list: []
+xl2tpd_enable_lns: True
 xl2tpd_local_ip: "192.168.21.2"
 xl2tpd_ip_range: "192.168.21.4-192.168.21.20"
