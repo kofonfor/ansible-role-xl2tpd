@@ -3,10 +3,13 @@
 
 - name: put /etc/xl2tpd/xl2tpd.conf
   template: src=xl2tpd.conf dest=/etc/xl2tpd/xl2tpd.conf
+  notify: restart xl2tpd
 
 - name: put /etc/ppp/options.xl2tpd
   template: src=options.xl2tpd dest=/etc/ppp/options.xl2tpd
+  notify: restart xl2tpd
 
 - name: put /etc/ppp/peers/{{ lac.name }}
   template: src=peers dest=/etc/ppp/peers/{{ item.name }}
   with_items: "{{ xl2tpd_lac_list }}"
+  notify: restart xl2tpd
