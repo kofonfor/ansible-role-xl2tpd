@@ -13,3 +13,13 @@
   template: src=peers dest=/etc/ppp/peers/{{ item.name }}
   with_items: "{{ xl2tpd_lac_list }}"
   notify: restart xl2tpd
+
+- name: put users to /etc/ppp/chap-secrets
+  lineinfile:
+    path: /etc/ppp/chap-secrets
+    state: present
+    backup: True
+    regexp: "^{{ item['username'] }}(\\s+)l2tpd(.*)$"
+    line: "{{ item['username'] }}         l2tpd   {{ item['password'] }}    {{ item['client_ip'] }}"
+  when: xl2tpd_enable_lns
+  with_items: "{{ xl2tpd_users }}"
